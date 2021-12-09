@@ -3,41 +3,53 @@ mongoose.connect('mongodb://localhost/csdl_ggshop');
 
 // Product Schema
 var ProductSchema = mongoose.Schema({
-    
-    _id: {
-        type: Number,
-        required: true
+    name: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        require: [true, "Name is required"]
     },
     brand: {
-        type: String
+        type: String,
+        trim: true,
+        lowercase: true,
+        require: [true, "Brand is required"]
     },
     type: {
-        type: String
+        type: String,
+        lowercase: true,
+        require: [true, "Brand is required"]
     },
     currency: {
         type: String,
-        required: true
+        default: 'USD'
     },
     price: {
         type: Number,
-        required: true
+        default: 100
     },
     image: {
         type: String,
         default: 'default.jpg'
     },
     description: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
+        type: String
     }
-    
+}, {
+    timestamps: true,
+    versionKey: false,
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true},
 });
 
-var Product= mongoose.model('product',ProductSchema)
-module.exports=Product;
+const ProductSchemaVirtual = ProductSchema.virtual('fullname');
+
+ProductSchemaVirtual.get(function() {
+    return `${this.brand} ${this.name} ${this.type}`
+})
+
+var Product= mongoose.model('product', ProductSchema)
+
+module.exports = Product;
 
 
