@@ -23,15 +23,33 @@ npm start
 # REST API
 Desscribed your api here
 
-## Get list of all products
+## Get a page of products
 ### Request
-`GET /products`
+`GET /products?page=1`
+```
+http://localhost:3000/api/products?page=1
+```
+
+## Get a specific products (not yet complete)
+`GET /products/id`
+```
+http://localhost:3000/api/products/id
+```
+
+## Create a new product
+`POST /products`
 ```
 http://localhost:3000/api/products
 ```
 
-## Get a specific products
-`GET /products/id`
+## Update a product details by its id 
+`PUT /products/id`
+```
+http://localhost:3000/api/products/id
+```
+
+## Delete a product details by its id 
+`DELETE /products/id`
 ```
 http://localhost:3000/api/products/id
 ```
