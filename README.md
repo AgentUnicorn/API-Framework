@@ -9,6 +9,11 @@ You need to make sure that you have all the dependencies are installed
 npm install
 ```
 
+Then add a file named `.env` and add this line of code
+```
+PORT = 3000 (or any port that you want: 7000, 8000, 8080, etc..)
+```
+
 ## Start Server
 After that, you can start the server by type this command
 ```
