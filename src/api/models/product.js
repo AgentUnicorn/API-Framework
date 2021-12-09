@@ -11,6 +11,9 @@ var ProductSchema = mongoose.Schema({
     brand: {
         type: String
     },
+    type: {
+        type: String
+    },
     currency: {
         type: String,
         required: true
@@ -21,7 +24,7 @@ var ProductSchema = mongoose.Schema({
     },
     image: {
         type: String,
-        default: 'images/default.jpg'
+        default: 'default.jpg'
     },
     description: {
         type: String,
@@ -33,7 +36,8 @@ var ProductSchema = mongoose.Schema({
     }
     
 });
-var    Product= mongoose.model('product',ProductSchema)
+
+var Product= mongoose.model('product',ProductSchema)
 module.exports=Product;
 
 
