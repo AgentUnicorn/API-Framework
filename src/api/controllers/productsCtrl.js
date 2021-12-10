@@ -22,7 +22,8 @@ getProducts = async (req, res) => {
 //Post request create new product
 createProduct = async (req, res) => {
     try {
-        const {name, brand, type, currency, price, description} = req.body;
+        console.log(req.body)
+        const {name, brand, type, currency, price, image, description} = req.body;
     
         if(!name || !brand || !type) {
             res.status(400).json(failCallback("Name, Brand and Type are required!!"))
