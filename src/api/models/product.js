@@ -1,5 +1,4 @@
 var mongoose= require('mongoose');
-mongoose.connect('mongodb://localhost/csdl_ggshop');
 
 // Product Schema
 var ProductSchema = mongoose.Schema({

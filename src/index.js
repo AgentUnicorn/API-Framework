@@ -4,8 +4,20 @@ var app = express();
 var path = require('path');
 var fileUpload = require('express-fileupload');
 var cors = require('cors');
+var mongoose= require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log("Connected to database")
+});
 
 const PORT = process.env.PORT;
+app.listen(
+    PORT, 
+    () => console.log(`Server is runnign on port ${PORT}`)
+)
 
 //Define route
 var productsRoute = require('./api/routes/productsRoute')
@@ -22,7 +34,3 @@ app.use(
 //Use route
 app.use('/api/products', productsRoute);
 
-app.listen(
-    PORT, 
-    () => console.log(`Server is runnign on port ${PORT}`)
-)
