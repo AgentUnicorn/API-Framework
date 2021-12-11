@@ -20,7 +20,8 @@ app.listen(
 )
 
 //Define route
-var productsRoute = require('./api/routes/productsRoute')
+var productsRoute = require('./api/routes/productsRoute');
+var indexRoute = require('./api/routes/indexRoute');
 
 app.use(express.json());
 app.use(fileUpload());
@@ -33,4 +34,5 @@ app.use(
 
 //Use route
 app.use('/api/products', productsRoute);
+app.use('/', indexRoute);
 
