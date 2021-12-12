@@ -23,7 +23,7 @@ getProducts = async (req, res) => {
 createProduct = async (req, res) => {
     try {
         console.log(req.body)
-        const {name, brand, type, currency, price, image, description} = req.body;
+        const {name, brand, type, currency, price, imageURL, description} = req.body;
     
         if(!name || !brand || !type) {
             res.status(400).json(failCallback("Name, Brand and Type are required!!"))
@@ -35,6 +35,7 @@ createProduct = async (req, res) => {
             type,
             currency,
             price,
+            imageURL,
             description
         })
 
