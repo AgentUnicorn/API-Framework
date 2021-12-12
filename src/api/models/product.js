@@ -27,7 +27,7 @@ var ProductSchema = mongoose.Schema({
         type: Number,
         default: 100
     },
-    image: {
+    imageURL: {
         type: String
     },
     description: {
